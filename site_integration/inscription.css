@@ -1,0 +1,42 @@
+body {
+    /*background-image: url('background1.jpg');*/
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 0%, 0%;
+}
+
+fieldset {
+    border: none;
+    padding: 5%;
+}
+
+legend {
+    font-style: italic;
+}
+
+.block {
+    border-radius: 5%;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    padding: 2%;
+    width: 35%;
+    margin-left: 32%;
+    margin-top: 5%;
+}
+
+legend {
+    color: green;
+    font-size: 1.15em;
+}
+
+.obligatoire {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+#valider {
+    position: relative;
+    left: 35%;
+}
