@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <title>Inscription</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/inscription.css')}}">
+
+</head>
+<body style="background-image:url({{url_for('static', filename=bg)}})">
+    <div class="container-fluid ">
+      <div>
+         {% with messages = get_flashed_messages(with_categories=true) %}
+           {% if messages %}
+             {% for category, message in messages %}
+               <div class="alert alert-{{ category }}">
+                 {{ message }}
+               </div>
+             {% endfor %}
+           {% endif %}
+         {% endwith %}
+         {% block content %}{% endblock %}
+       </div>
+        <form method="post" action="" enctype="multipart/form-data" class="block col-sm-10 col-md-8 col-lg-7 mx-auto rounded" >
+            <fieldset class="form-group ">
+              {{ form.hidden_tag() }}
+                <legend>
+                    <marquee behavior="" direction="right">Inscrivez-vous et soyez parrainé !</marquee>
+                </legend>
+                <div class="form-group">
+                    {{ form.prenom.label(class="form-control-label") }}
+
+                    {% if form.prenom.errors %}
+                        {{ form.prenom(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.prenom.errors %}
+                                <span> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.prenom(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.nom.label(class="form-control-label") }}
+
+                    {% if form.nom.errors %}
+                        {{ form.nom(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.nom.errors %}
+                                <span> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.nom(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label")}}
+
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.classe.label(class="form-control-label")}}
+
+                    {% if form.classe.errors %}
+                        {{ form.classe(class="form-control  is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.classe.errors %}
+                                <span> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.classe(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.tel.label(class="form-control-label")}}
+
+                    {% if form.tel.errors %}
+                        {{ form.tel(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.tel.errors %}
+                                <span> {{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.tel(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.image_file.label()}}
+                    {{ form.image_file(class="form-control-file")}}
+                    {% if form.image_file.errors %}
+                        {% for error in form.image_file.errors %}
+                            <span class="text-danger"> {{error}} </span></br>
+                        {% endfor%}
+                    {% endif %}
+                </div>
+                <small class="alert alert-warning">Tous les champs sont obligatoires !</small><br/>
+                <br><br>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script src="{{url_for('static', filename='js/jquery-3.2.1.slim.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>
+</html>

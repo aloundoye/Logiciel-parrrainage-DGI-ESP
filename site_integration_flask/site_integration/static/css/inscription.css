@@ -1,0 +1,23 @@
+body {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 0%, 0%;
+}
+
+fieldset {
+    border: none;
+    padding: 5%;
+}
+
+legend {
+    font-style: italic;
+}
+
+.block {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+legend {
+    color: green;
+    font-size: 1.15em;
+}
